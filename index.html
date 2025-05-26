@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html class="scroll-smooth">
+    <head>
+        	<meta charset="UTF-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+            <link rel="stylesheet" href="styles.css">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+            <link href="https://fonts.googleapis.com/css2?family=Handlee&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+            <title>ZERODUCCI</title>
+    </head>
+    <body class="m-0" style="font-family: 'Roboto', sans-serif">
+        <!-- Notificação de Cópia para area de transferencia
+        <div class="container ">
+            <div class="flex w-full max-w-sm overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800 fixed z-10 ">
+                <div class="flex items-center justify-center w-12 bg-emerald-500">
+                    <svg class="w-6 h-6 text-white fill-current" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20 3.33331C10.8 3.33331 3.33337 10.8 3.33337 20C3.33337 29.2 10.8 36.6666 20 36.6666C29.2 36.6666 36.6667 29.2 36.6667 20C36.6667 10.8 29.2 3.33331 20 3.33331ZM16.6667 28.3333L8.33337 20L10.6834 17.65L16.6667 23.6166L29.3167 10.9666L31.6667 13.3333L16.6667 28.3333Z" />
+                    </svg>
+                </div>
+            
+                <div class="px-4 py-2 -mx-3">
+                    <div class="mx-3">
+                        <span class="font-semibold text-emerald-500 dark:text-emerald-400">Success</span>
+                        <p class="text-sm text-gray-600 dark:text-gray-200">Your account was registered!</p>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+        <main class="bg-yellow-50">
+            <nav x-data="{ isOpen: false }" class="fixed w-full bg-white shadow bg-yellow-400 border-b-2 border-yellow-500 z-20">
+                    <div class="container px-6 py-3 md:flex md:justify-between md:items-center">
+                        <div class="border-sky-600 bg-sky-600 border-2 p-1 pl-4 pr-4 ">
+                                <a href="#home" class="font-bold text-lg text-yellow-400 tracking-wider" style="font-family: 'Handlee', cursive">ZERODUCCI</a>
+                            </div>
+                        <div class="flex items-center justify-between">
+                            
+                            <div x-cloak :class="[isOpen ? 'translate-x-0 opacity-100 ' : 'opacity-0 -translate-x-full']" class="absolute inset-x-0 z-20 w-full px-6 py-4 transition-all duration-300 ease-in-out bg-white bg-yellow-400 md:mt-0 md:p-0 md:top-0 md:relative md:bg-transparent md:w-auto md:opacity-100 md:translate-x-0 md:flex md:items-center">
+                                <div class="flex flex-col md:flex-row md:mx-6">
+                                    <a href="https://www.instagram.com/zeroduccicampinas/?hl=pt" target="_blank" class="text-lg mx-2 text-white transition-colors duration-300 hover:text-blue-500 dark:hover:text-blue-400" aria-label="Instagram">
+                                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                            <path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9a5.5 5.5 0 0 1-5.5 5.5h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2Zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9Zm8.25 2.25a.75.75 0 0 1 1.5 0v1.5a.75.75 0 0 1-1.5 0v-1.5ZM12 7.25A4.75 4.75 0 1 1 7.25 12 4.75 4.75 0 0 1 12 7.25Zm0 1.5A3.25 3.25 0 1 0 15.25 12 3.25 3.25 0 0 0 12 8.75Z"/>
+                                        </svg>
+                                    </a>
+                                    <a class="font-bold text-lg my-2 text-white transition-colors duration-300 transform hover:underline hover:text-sky-400 hover:text-blue-400 md:mx-4 md:my-0 " href="#home">Início</a>
+                                    <a class="font-bold text-lg my-2 text-white transition-colors duration-300 transform hover:underline hover:text-sky-400 hover:text-blue-400 md:mx-4 md:my-0 " href="#produtos">Loja</a>
+                                    <a class="font-bold text-lg my-2 text-white transition-colors duration-300 transform hover:underline hover:text-sky-400 hover:text-blue-400 md:mx-4 md:my-0" href="#contato">Contato</a>
+                                    <a class="font-bold text-lg my-2 text-white transition-colors duration-300 transform hover:underline hover:text-sky-400 hover:text-blue-400 md:mx-4 md:my-0" href="#localizacao">Localização</a>
+                                    <a id="telefone" title="Clique para copiar número de Telefone: (62) 3942-1444" class="telefone mx-2 text-white transition-colors duration-300 hover:text-blue-500 rounded-full cursor-pointer active:bg-sky-700 active:text-white" aria-label="Telefone" >
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                            stroke="currentColor" class="w-6 h-6">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    <div><a href="#home"><img src="imagens/ursinho.png" width="65px"></a></div>
+                </div>
+            </nav>
+            <div class="flex justify-center">
+                <div id="alertCopy" class="flex w-full max-w-sm overflow-hidden rounded-lg shadow-md bg-white border-2 border-emerald-600 hidden z-20" style="margin: 7rem; ">
+                    <div class="flex items-center justify-center w-12 bg-emerald-600"> 
+                        <svg class="w-6 h-6 text-white fill-current" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20 3.33331C10.8 3.33331 3.33337 10.8 3.33337 20C3.33337 29.2 10.8 36.6666 20 36.6666C29.2 36.6666 36.6667 29.2 36.6667 20C36.6667 10.8 29.2 3.33331 20 3.33331ZM16.6667 28.3333L8.33337 20L10.6834 17.65L16.6667 23.6166L29.3167 10.9666L31.6667 13.3333L16.6667 28.3333Z" />
+                        </svg>
+                    </div>
+
+                    <div class="px-4 py-2 -mx-3">
+                        <div class="mx-3">
+                            <span class="font-semibold text-emerald-500 dark:text-emerald-600">Copiado com sucesso!</span>
+                            <p class="text-sm text-gray-800 ">O número de telefone foi copiado com sucesso para sua área de transferência!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <section id="home" class="pt-20">
+                <div id="banner" class="w-full bg-center bg-cover h-[38rem]" style="background-image: url('imagens/banner.png');">
+                    <div class="flex items-center justify-center w-full h-full bg-gray-900/40">
+                        <div class="text-center">
+                            <h1 class="text-3xl font-semibold text-white lg:text-4xl" ><span class=" font-bold text-white ">Moda Infantil</span> é na <span class="text-yellow-400 bg-sky-600 px-3 border-4 border-sky-700" style="font-family: 'Handlee', cursive">ZERODUCCI</span></h1>
+                            <a href="#produtos"><button class="z-0 w-full px-6 py-2 mt-4 text-lg font-medium text-white capitalize transition-colors duration-300 transform bg-sky-600 rounded-md lg:w-auto hover:bg-sky-500 focus:outline-none focus:bg-sky-500">Conferir Ofertas</button></a>
+                        </div>
+                    </div>
+                </div>
+                
+            </section>
+            <section id="produtos" class="mt-10">
+                <div class="container flex flex-col px-6 py-10 mx-auto space-y-6 lg:h-[32rem] lg:py-16 lg:flex-row lg:items-center bg-sky-500 rounded-lg">
+                    <div class="w-full lg:w-1/2">
+                        <div class="lg:max-w-lg">
+                            <h1 class="text-3xl font-semibold tracking-wide text-white lg:text-4xl">Descubra a combinação perfeita para o seu pequeno!</h1>
+                            <p class="mt-4 text-white">Oferecemos uma ampla variedade de tamanhos, estilos e acessórios para atender todas as fases da infância. Garantimos:</p>
+                            <div class="grid gap-6 mt-8 sm:grid-cols-2">
+                                <div class="flex items-center text-white">
+                                    <svg class="w-5 h-5 mx-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                    </svg>
+
+                                    <span class="mx-3">Conforto e Mobilidade</span>
+                                </div>
+
+                                <div class="flex items-center text-gray-800 -px-3 dark:text-gray-200">
+                                    <svg class="w-5 h-5 mx-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                    </svg>
+
+                                    <span class="mx-3">Durabilidade e Resistência</span>
+                                </div>
+
+                                <div class="flex items-center text-gray-800 -px-3 dark:text-gray-200">
+                                    <svg class="w-5 h-5 mx-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                    </svg>
+
+                                    <span class="mx-3">Facilidade na Lavagem</span>
+                                </div>
+
+                                <div class="flex items-center text-gray-800 -px-3 dark:text-gray-200">
+                                    <svg class="w-5 h-5 mx-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                    </svg>
+
+                                    <span class="mx-3">Segurança e Proteção</span>
+                                </div>
+
+                                <div class="flex items-center text-gray-800 -px-3 dark:text-gray-200">
+                                    <svg class="w-5 h-5 mx-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                    </svg>
+
+                                    <span class="mx-3">Design Funcional</span>
+                                </div>
+
+                                <div class="flex items-center text-gray-800 -px-3 dark:text-gray-200">
+                                    <svg class="w-5 h-5 mx-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                    </svg>
+
+                                    <span class="mx-3">Estímulo à Autoexpressão</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center justify-center w-full h-96 lg:w-1/2">
+                        <img class="object-cover w-full h-full max-w-2xl rounded-md" src="imagens/variacaobebe.png" alt="glasses photo">
+                    </div>
+                </div>
+                <div class="my-10 w-full flex flex-col items-center">
+                    <div class=" w-full flex justify-center">
+                        <!--<button class="px-10 py-4 mx-4 font-medium tracking-wider text-white capitalize transition-colors duration-300 transform bg-pink-500 transform transition-transform duration-300 hover:-translate-y-2 rounded-sm hover:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80">
+                            Roupas
+                        </button>-->
+                        <a href="#criancas"><button class="px-10 py-4 mx-4 font-medium tracking-wider text-white capitalize transition-colors duration-300 transform bg-pink-500 rounded-sm hover:bg-pink-400 transform transition-transform duration-300 hover:-translate-y-2  focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80">
+                            Crianças
+                        </button></a>
+                        <a href="#adolescentes"><button class="px-11 py-4 mx-4 font-medium tracking-wider text-white capitalize transition-colors duration-300 transform bg-lime-500 rounded-sm hover:bg-lime-400 transform transition-transform duration-300 hover:-translate-y-2 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80">
+                            Adolescentes
+                        </button></a>
+                        <a href="#bebes"><button class="px-7 py-4 mx-4 font-medium tracking-wider text-white capitalize transition-colors duration-300 transform bg-amber-400 rounded-sm hover:bg-amber-300 transform transition-transform duration-300 hover:-translate-y-2 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80">
+                            Pequeninos 
+                        </button></a> 
+                    </div>
+                    <div class="border-4 border-sky-500 rounded-xl bg-white p-6 max-w-xl mx-auto shadow-md my-10">
+                        <h2 class="text-2xl font-semibold text-sky-700 text-center mb-3">
+                            Explore nosso catálogo e encontre o look perfeito para seu pequeno!
+                        </h2>
+                        <p class="text-gray-700 text-center text-base">
+                            Descubra uma coleção repleta de estilos encantadores, tamanhos variados e acessórios incríveis para todas as ocasiões.
+                        </p>
+                    </div> 
+                    <div class="w-full text-white bg-blue-500">
+                        <div class="container flex items-center justify-between px-6 py-4 mx-auto">
+                            <div class="flex">
+                                <svg viewBox="0 0 40 40" class="w-6 h-6 fill-current">
+                                    <path d="M20 3.33331C10.8 3.33331 3.33337 10.8 3.33337 20C3.33337 29.2 10.8 36.6666 20 36.6666C29.2 36.6666 36.6667 29.2 36.6667 20C36.6667 10.8 29.2 3.33331 20 3.33331ZM21.6667 28.3333H18.3334V25H21.6667V28.3333ZM21.6667 21.6666H18.3334V11.6666H21.6667V21.6666Z">
+                                    </path>
+                                </svg>
+
+                                <p class="mx-3">Observação: Os preços dos produtos, tamanhos, modelos e tipos de roupas podem variar. Para obter informações detalhadas sobre valores, entre em contato com nosso vendedor ou visite nossa loja e confira pessoalmente! </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="criancas" class="flex flex-col items-center overflow-hidden">
+                    <h2 class="text-3xl font-bold text-white bg-pink-500 border-x-8 border-y-2 border-pink-600 px-4 py-2 rounded-lg text-center mb-4">Para Crianças</h2>
+                    <div  class="m-10 snap-x overflow-x-scroll flex flex-row px-2 py-4 rounded-lg w-5/6 border-t-4 border-pink-600 bg-pink-400 shadow-lg">
+                        <div class="max-w-xs shrink-0 overflow-hidden rounded-lg shadow-lg bg-white border-2 border-gray-200 mx-8 snap-start scroll-ml-6">
+                            <div class="px-4 py-2">
+                                <h1 class="text-xl font-bold text-sky-800 uppercase">CALÇA MOLETOM BRANCA COM LISTRAS</h1>
+                            </div>
+
+                            <img class="object-cover w-80 h-80 mt-2" src="imagens/roupas/criancas/calcamoletombranca.png" alt="CALÇA MOLETOM BRANCA COM LISTRAS">
+
+                            <div class="flex items-center justify-between px-4 py-2 bg-white">
+                                <!-- <h1 class="text-lg font-bold text-gray-800">R$0</h1> -->
+                            </div>
+                        </div>
+                        <div class="max-w-xs shrink-0 overflow-hidden rounded-lg shadow-lg bg-white border-2 border-gray-200 mx-8 snap-start scroll-ml-6">
+                            <div class="px-4 py-2">
+                                <h1 class="text-xl font-bold text-sky-800 uppercase">CALÇA MOLETOM PRETA COM LISTRAS</h1>
+                            </div>
+
+                            <img class="object-cover w-80 h-80 mt-2" src="imagens/roupas/criancas/calcamoletompreta.png" alt="CALÇA MOLETOM PRETA COM LISTRAS">
+
+                            <div class="flex items-center justify-between px-4 py-2 bg-white">
+                                <!-- <h1 class="text-lg font-bold text-gray-800">R$0</h1> -->
+                            </div>
+                        </div>
+                        <div class="max-w-xs shrink-0 overflow-hidden rounded-lg shadow-lg bg-white border-2 border-gray-200 mx-8 snap-start scroll-ml-6">
+                            <div class="px-4 py-2">
+                                <h1 class="text-xl font-bold text-sky-800 uppercase">SAIA BRANCA FLORIDA</h1>
+                            </div>
+
+                            <img class="object-cover w-80 h-80 mt-2" src="imagens/roupas/criancas/saiafloresbege.png" alt="SAIA BRANCA FLORIDA">
+
+                            <div class="flex items-center justify-between px-4 py-2 bg-white">
+                                <!-- <h1 class="text-lg font-bold text-gray-800">R$0</h1> -->
+                            </div>
+                        </div>
+                        <div class="max-w-xs shrink-0 overflow-hidden rounded-lg shadow-lg bg-white border-2 border-gray-200 mx-8 snap-start scroll-ml-6">
+                            <div class="px-4 py-2">
+                                <h1 class="text-xl font-bold text-sky-800 uppercase">CONJUNTO SHORT GIRASSOL COM BLUSA BRANCA</h1>
+                            </div>
+
+                            <img class="object-cover w-80 h-80 mt-2" src="imagens/roupas/criancas/shortgirasolblusabranca.png" alt="CONJUNTO SHORT GIRASSOL COM BLUSA BRANCA">
+
+                            <div class="flex items-center justify-between px-4 py-2 bg-white">
+                            </div>
+                        </div>
+                        <div class="max-w-xs shrink-0 overflow-hidden rounded-lg shadow-lg bg-white border-2 border-gray-200 mx-8 snap-start scroll-ml-6">
+                            <div class="px-4 py-2">
+                                <h1 class="text-xl font-bold text-sky-800 uppercase">CONJUNTO SHORT JEANS COM BLUSA SOCIAL</h1>
+                            </div>
+
+                            <img class="object-cover w-80 h-80 mt-2" src="imagens/roupas/criancas/shortjeansblusasocial.png" alt="CONJUNTO SHORT JEANS COM BLUSA SOCIAL">
+
+                            <div class="flex items-center justify-between px-4 py-2 bg-white">
+                                <!-- <h1 class="text-lg font-bold text-gray-800">R$0</h1> -->
+                            </div>
+                        </div>
+                        <div class="max-w-xs shrink-0 overflow-hidden rounded-lg shadow-lg bg-white border-2 border-gray-200 mx-8 snap-start scroll-ml-6">
+                            <div class="px-4 py-2">
+                                <h1 class="text-xl font-bold text-sky-800 uppercase">CONJUNTO SAIA BRANCA COM BLUSA AZUL MARINHO</h1>
+                            </div>
+
+                            <img class="object-cover w-80 h-80 mt-2" src="imagens/roupas/criancas/saiabrancablusaazulamrinho.png" alt="CONJUNTO SAIA BRANCA COM BLUSA AZUL MARINHO">
+
+                            <div class="flex items-center justify-between px-4 py-2 bg-white">
+                                <!-- <h1 class="text-lg font-bold text-gray-800">R$0</h1> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="my-12 h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-sky-500 to-transparent opacity-25 dark:via-sky-400"/>
+
+                <div id="adolescentes" class="flex flex-col items-center overflow-hidden mt-10">
+                    <h2 class="text-3xl font-bold text-white bg-lime-500 border-x-8 border-y-2 border-lime-600 px-4 py-2 rounded-lg text-center mb-4">Para Adolescentes</h2>
+                    <div  class="m-10 snap-x overflow-x-scroll flex flex-row px-2 py-4 rounded-lg w-5/6 border-t-4 border-lime-600 bg-lime-400 shadow-lg">
+                        <div class="max-w-xs shrink-0 overflow-hidden rounded-lg shadow-lg bg-white border-2 border-gray-200 mx-8 snap-start scroll-ml-6">
+                            <div class="px-4 py-2">
+                                <h1 class="text-xl font-bold text-sky-800 uppercase">CONJUNTO SHORT NATUREZA COM BLUSA ROSA</h1>
+                            </div>
+
+                            <img class="object-cover w-80 h-80 mt-2" src="imagens/roupas/adolescentes/rosashortplanta.png" alt="CONJUNTO SHORT NATUREZA COM BLUSA ROSA">
+
+                            <div class="flex items-center justify-between px-4 py-2 bg-white">
+                                <!-- <h1 class="text-lg font-bold text-gray-800">R$0</h1> -->
+                            </div>
+                        </div>
+                        <div class="max-w-xs shrink-0 overflow-hidden rounded-lg shadow-lg bg-white border-2 border-gray-200 mx-8 snap-start scroll-ml-6">
+                            <div class="px-4 py-2">
+                                <h1 class="text-xl font-bold text-sky-800 uppercase">CALÇA JEANS</h1>
+                            </div>
+
+                            <img class="object-cover w-80 h-80 mt-2" src="imagens/roupas/adolescentes/calcajeans.png" alt="CALÇA JEANS">
+
+                            <div class="flex items-center justify-between px-4 py-2 bg-white">
+                                <!-- <h1 class="text-lg font-bold text-gray-800">R$0</h1> -->
+                            </div>
+                        </div>
+                        <div class="max-w-xs shrink-0 overflow-hidden rounded-lg shadow-lg bg-white border-2 border-gray-200 mx-8 snap-start scroll-ml-6">
+                            <div class="px-4 py-2">
+                                <h1 class="text-xl font-bold text-sky-800 uppercase">CONJUNTO SHORT JEANS COM BLUSA AMARELA BALÃO DE FLORES</h1>
+                            </div>
+
+                            <img class="object-cover w-80 h-80 mt-2" src="imagens/roupas/adolescentes/conjuntojeansbalaoflores.png" alt="CONJUNTO SHORT JEANS COM BLUSA AMARELA BALÃO DE FLORES">
+
+                            <div class="flex items-center justify-between px-4 py-2 bg-white">
+                                <!-- <h1 class="text-lg font-bold text-gray-800">R$0</h1> -->
+                            </div>
+                        </div>
+                        <div class="max-w-xs shrink-0 overflow-hidden rounded-lg shadow-lg bg-white border-2 border-gray-200 mx-8 snap-start scroll-ml-6">
+                            <div class="px-4 py-2">
+                                <h1 class="text-xl font-bold text-sky-800 uppercase">CAMISA SOCIAL BRANCA</h1>
+                            </div>
+
+                            <img class="object-cover w-80 h-80 mt-2" src="imagens/roupas/adolescentes/blusasocialbranca.png" alt="CAMISA SOCIAL BRANCA">
+
+                            <div class="flex items-center justify-between px-4 py-2 bg-white">
+                                <!-- <h1 class="text-lg font-bold text-gray-800">R$0</h1> -->
+                            </div>
+                        </div>
+                        <div class="max-w-xs shrink-0 overflow-hidden rounded-lg shadow-lg bg-white border-2 border-gray-200 mx-8 snap-start scroll-ml-6">
+                            <div class="px-4 py-2">
+                                <h1 class="text-xl font-bold text-sky-800 uppercase">CONJUNTO SHORT DE FLORES COM BLUSA ROSA DE GATINHA</h1>
+                            </div>
+
+                            <img class="object-cover w-80 h-80 mt-2" src="imagens/roupas/adolescentes/conjuntoshortfloresgatinha.png" alt="CONJUNTO SHORT DE FLORES COM BLUSA ROSA DE GATINHA">
+
+                            <div class="flex items-center justify-between px-4 py-2 bg-white">
+                                <!-- <h1 class="text-lg font-bold text-gray-800">R$0</h1> -->
+                            </div>
+                        </div>
+                        <div class="max-w-xs shrink-0 overflow-hidden rounded-lg shadow-lg bg-white border-2 border-gray-200 mx-8 snap-start scroll-ml-6">
+                            <div class="px-4 py-2">
+                                <h1 class="text-xl font-bold text-sky-800 uppercase">CAMISA BRANCA COM SIMBOLO DE CACHORRO</h1>
+                            </div>
+
+                            <img class="object-cover w-80 h-80 mt-2" src="imagens/roupas/adolescentes/camisabrancacachorro.png" alt="CAMISA BRANCA COM SIMBOLO DE CACHORRO">
+
+                            <div class="flex items-center justify-between px-4 py-2 bg-white">
+                                <!-- <h1 class="text-lg font-bold text-gray-800">R$0</h1> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="my-12 h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-sky-500 to-transparent opacity-25 dark:via-sky-400"/>
+
+                <section class="bg-sky-500">
+                    <div class="container flex flex-col items-center px-4 py-12 mx-auto xl:flex-row">
+                        <div class="flex justify-center xl:w-1/2">
+                            <img class="h-80 w-80 sm:w-[28rem] sm:h-[28rem] flex-shrink-0 object-cover rounded-full" src="imagens/fofurinha.png" alt="">
+                        </div>
+
+                        <div class="flex flex-col items-center mt-6 xl:items-start xl:w-1/2 xl:mt-0">
+                            <h2 class="text-2xl font-semibold tracking-tight text-gray-800 xl:text-3xl dark:text-white">
+                                Estilo e conforto para os primeiros passos da infância!
+                            </h2>
+
+                            <p class="block max-w-2xl mt-4 text-gray-500 dark:text-gray-300">Nossa coleção é feita para acompanhar os pequeninos em cada descoberta, oferecendo peças macias, seguras e cheias de personalidade. 
+                                Com tecidos leves, ajustes práticos e estampas encantadoras, garantimos qualidade e bem-estar para todas as aventuras do dia a dia. Porque cada momento merece um look especial! 
+                            </p>
+                            <div class="mt-6 sm:-mx-2">
+                                
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                
+
+                <div id="bebes" class="flex flex-col items-center overflow-hidden">
+                    <h2  class="text-3xl font-bold text-white bg-yellow-500 border-x-8 border-y-2 border-yellow-600 px-4 py-2 rounded-lg text-center mb-4 mt-10">Para Pequeninos</h2>
+                    <div class="m-10 snap-x overflow-x-scroll flex flex-row px-2 py-4 rounded-lg w-5/6 border-t-4 border-yellow-400 bg-yellow-300 shadow-lg">
+                        <div class="max-w-xs shrink-0 overflow-hidden rounded-lg shadow-lg bg-white border-2 border-gray-200 mx-8 snap-start scroll-ml-6">
+                            <div class="px-4 py-2">
+                                <h1 class="text-xl font-bold text-sky-800 uppercase">CONJUNTO BODY ESCAMAS COM SAIA JEANS</h1>
+                            </div>
+
+                            <img class="object-cover w-80 h-80 mt-2" src="imagens/roupas/pequeninos/saiajeans.png" alt="CONJUNTO BODY ESCAMAS COM SAIA JEANS">
+
+                            <div class="flex items-center justify-between px-4 py-2 bg-white">
+                                <!-- <h1 class="text-lg font-bold text-gray-800">R$0</h1> -->
+                            </div>
+                        </div>
+                        <div class="max-w-xs shrink-0 overflow-hidden rounded-lg shadow-lg bg-white border-2 border-gray-200 mx-8 snap-start scroll-ml-6">
+                            <div class="px-4 py-2">
+                                <h1 class="text-xl font-bold text-sky-800 uppercase">CONJUNTO BODY COM SHORTS DE DINOSSAURO</h1>
+                            </div>
+
+                            <img class="object-cover w-80 h-80 mt-2" src="imagens/roupas/pequeninos/blusaeshortdebebe.png" alt="CONJUNTO BODY COM SHORTS DE DINOSSAURO">
+
+                            <div class="flex items-center justify-between px-4 py-2 bg-white">
+                                <!-- <h1 class="text-lg font-bold text-gray-800">R$0</h1> -->
+                            </div>
+                        </div>
+                        <div class="max-w-xs shrink-0 overflow-hidden rounded-lg shadow-lg bg-white border-2 border-gray-200 mx-8 snap-start scroll-ml-6">
+                            <div class="px-4 py-2">
+                                <h1 class="text-xl font-bold text-sky-800 uppercase">CONJUNTO BODY COM SHORTS GUAXINIM E CACTO</h1>
+                            </div>
+
+                            <img class="object-cover w-80 h-80 mt-2" src="imagens/roupas/pequeninos/guaxinimecacto.png" alt="CONJUNTO BODY COM SHORTS GUAXINIM E CACTO">
+
+                            <div class="flex items-center justify-between px-4 py-2 bg-white">
+                                <!-- <h1 class="text-lg font-bold text-gray-800">R$0</h1> -->
+                            </div>
+                        </div>
+                        <div class="max-w-xs shrink-0 overflow-hidden rounded-lg shadow-lg bg-white border-2 border-gray-200 mx-8 snap-start scroll-ml-6">
+                            <div class="px-4 py-2">
+                                <h1 class="text-xl font-bold text-sky-800 uppercase">CONJUNTO BODY BRANCO COM MOLETOM DE LEÃO E CALÇA AZUL</h1>
+                            </div>
+
+                            <img class="object-cover w-80 h-80 mt-2" src="imagens/roupas/pequeninos/calcaazulleao.png" alt="CONJUNTO BODY BRANCO COM MOLETOM DE LEÃO E CALÇA AZUL">
+
+                            <div class="flex items-center justify-between px-4 py-2 bg-white">
+                                <!-- <h1 class="text-lg font-bold text-gray-800">R$0</h1> -->
+                            </div>
+                        </div>
+                        <div class="max-w-xs shrink-0 overflow-hidden rounded-lg shadow-lg bg-white border-2 border-gray-200 mx-8 snap-start scroll-ml-6">
+                            <div class="px-4 py-2">
+                                <h1 class="text-xl font-bold text-sky-800 uppercase">BODY URSINHOS</h1>
+                            </div>
+
+                            <img class="object-cover w-80 h-80 mt-2" src="imagens/roupas/pequeninos/bodybeberosaurso.png" alt="BODY URSINHOS">
+
+                            <div class="flex items-center justify-between px-4 py-2 bg-white">
+                                <!-- <h1 class="text-lg font-bold text-gray-800">R$0</h1> -->
+                            </div>
+                        </div>
+                        <div class="max-w-xs shrink-0 overflow-hidden rounded-lg shadow-lg bg-white border-2 border-gray-200 mx-8 snap-start scroll-ml-6">
+                            <div class="px-4 py-2">
+                                <h1 class="text-xl font-bold text-sky-800 uppercase">VESTIDO ROSA FLORIDO</h1>
+                            </div>
+
+                            <img class="object-cover w-80 h-80 mt-2"  src="imagens/roupas/pequeninos/bodyvestidomeniina.png" alt="VESTIDO ROSA FLORIDO">
+
+                            <div class="flex items-center justify-between px-4 py-2 bg-white">
+                                <!-- <h1 class="text-lg font-bold text-gray-800">R$0</h1> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="localizacao" class="max-w-4xl mx-auto bg-white rounded-xl shadow-md overflow-hidden border border-yellow-400">
+                    <div class="md:flex">
+                        <div class="md:shrink-0 overflow-hidden">
+                            <iframe 
+                                class="w-full h-full"
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3822.139557719149!2d-49.290578599999996!3d-16.6698984!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x935ef40ee734aba3%3A0x160c8f8b7821f1ea!2sZeroducci!5e0!3m2!1spt-BR!2sbr!4v1748033565018!5m2!1spt-BR!2sbr" 
+                                allowfullscreen="" 
+                                loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        </div>
+                        <div class="p-8 flex flex-col justify-center">
+                            <div class="uppercase tracking-wide text-sm text-sky-700 font-semibold">Nossa Localização</div>
+                            <h2 class="block mt-1 text-2xl leading-tight font-bold text-gray-900">Venha nos visitar!</h2>
+                            <p class="mt-2 text-gray-600">
+                                Estamos te esperando na <strong>Zeroducci</strong>! Confira no mapa ao lado onde estamos localizados e venha realizar suas compras.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <hr class="my-12 h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-sky-500 to-transparent opacity-25 dark:via-sky-400"/>
+
+                <section id="contato" class="bg-yellow-500 border-t-2 border-yellow-600">
+                    <div class="container px-6 py-12 mx-auto">
+                        <div class="text-center">
+                            <p class="font-medium text-blue-500 dark:text-blue-400">Nos Contate</p>
+
+                            <h1 class="mt-2 text-2xl font-semibold text-white md:text-3xl underline">Entre em Contato</h1>
+
+                            <p class="mt-3 text-white">Diga-nos quais dos produtos que se interessou!</p>
+                        </div>
+
+                        <div class="grid grid-cols-1 gap-12 mt-10 md:grid-cols-2 lg:grid-cols-3">
+                            <div class="flex flex-col items-center justify-center text-center">
+                                <span class="p-3 text-white rounded-full bg-sky-500 transition-colors duration-300 transform hover:bg-sky-600">
+                                    <a href="https://www.instagram.com/zeroduccicampinas/?hl=pt" target="_blank" aria-label="Instagram">
+                                        <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
+                                            <path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9a5.5 5.5 0 0 1-5.5 5.5h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2Zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9Zm8.25 2.25a.75.75 0 0 1 1.5 0v1.5a.75.75 0 0 1-1.5 0v-1.5ZM12 7.25A4.75 4.75 0 1 1 7.25 12 4.75 4.75 0 0 1 12 7.25Zm0 1.5A3.25 3.25 0 1 0 15.25 12 3.25 3.25 0 0 0 12 8.75Z"/>
+                                        </svg>
+                                    </a>
+                                </span>
+
+                                <h2 class="mt-4 text-lg font-medium text-gray-800 dark:text-white">Instagram</h2>
+                                <p class="mt-2 text-white underline">Siga nossa página para acompanhar novas linhas e ofertas!</p>
+                                <p class="mt-2 text-blue-500 dark:text-blue-400 font-bold">@zeroduccicampinas</p>
+                            </div>
+
+                            <div class="flex flex-col items-center justify-center text-center">
+                                <span class="p-3 text-white rounded-full bg-sky-500 transition-colors duration-300 transform hover:bg-sky-600">
+                                    <a href="https://maps.app.goo.gl/HxfD7gLGJyttbUxm8" target="_blank" aria-label="Localização">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 h-7">                   
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+                                    </svg></a>
+                                </span>
+                                
+                                <h2 class="mt-4 text-lg font-medium text-gray-800 dark:text-white">Localização</h2>
+                                <p class="mt-2 text-white underline">Venha visitar nossa loja pertinha de você!</p>
+                                <p class="mt-2 text-blue-500 dark:text-blue-400 font-bold">Av. Alberto Miguel, Nº406 - Setor Campinas | Goiânia - GO</p>
+                            </div>
+
+                            <div class="flex flex-col items-center justify-center text-center">
+                                <span id="telefone" class="p-3 text-white rounded-full bg-sky-500 transition-colors duration-300 transform hover:bg-sky-600 telefone" title="Clique para copiar número de Telefone: (62) 3942-1444">          
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                            stroke="currentColor" class="w-7 h-7">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
+                                        </svg>
+                                </span>
+                                
+                                <h2 class="mt-4 text-lg font-medium text-gray-800 dark:text-white">Telefone</h2>
+                                <p class="mt-2 text-white underline">Segunda-Sexta das 8:00 às 18:00,<br>e Sábado das 8:00 às 13:00</p>
+                                <p class="mt-2 text-blue-500 dark:text-blue-400 font-bold">+55 (62) 3942-1444</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            <footer class="bg-white dark:bg-yellow-600 shadow">
+                <div class="container flex flex-col items-center justify-between p-6 mx-auto space-y-4 sm:space-y-0 sm:flex-row">
+                    <div class="flex items-center">
+                        <img src="imagens/ursinho.png" width="50px">
+                        <div class="border-sky-600 bg-sky-600 py-1 px-4 ">
+                            <a href="#home" class="font-bold text-x1 text-yellow-400 tracking-wider" style="font-family: 'Handlee', cursive">ZERODUCCI</a>
+                        </div>
+                    </div>
+                    <div class="flex flex-col text-white text-sm space-y-1 text-center">
+                        <div>
+                            <span>© Copyright 2025. Todos os Direitos Reservados.<br>
+                            <span class="underline">Classificações das roupas podem não ser precisas. Para informações detalhadas sobre preços, tamanhos, modelos e tipos de roupas, visite nossa loja ou entre em contato com o vendedor.</span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="flex -mx-2">
+                        <a href="https://maps.app.goo.gl/HxfD7gLGJyttbUxm8" target="_blank" class="cursor-pointer mx-2 text-white transition-colors duration-300 hover:text-sky-600" aria-label="Localização">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7Zm0 9.5A2.5 2.5 0 1 1 14.5 9 2.5 2.5 0 0 1 12 11.5Z"/>
+                            </svg>
+                        </a>
+
+                        <a href="https://www.instagram.com/zeroduccicampinas/?hl=pt" target="_blank" class="mx-2 text-white transition-colors duration-300 hover:text-blue-500 dark:hover:text-blue-400" aria-label="Instagram">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9a5.5 5.5 0 0 1-5.5 5.5h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2Zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9Zm8.25 2.25a.75.75 0 0 1 1.5 0v1.5a.75.75 0 0 1-1.5 0v-1.5ZM12 7.25A4.75 4.75 0 1 1 7.25 12 4.75 4.75 0 0 1 12 7.25Zm0 1.5A3.25 3.25 0 1 0 15.25 12 3.25 3.25 0 0 0 12 8.75Z"/>
+                            </svg>
+                        </a>
+
+                        <a id="telefone" title="Clique para copiar número de Telefone: (62) 3942-1444" class="cursor-pointer mx-2 text-white transition-colors duration-300 hover:text-blue-500 dark:hover:text-blue-400 telefone" >
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                            stroke="currentColor" class="w-6 h-6">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </footer>
+        </main>
+        <script src="script.js">
+        </script>
+        <script src="../assets/js/color-modes.js"></script>
+        <script src="https://cdn.tailwindcss.com"></script>
+    </body>
+</html>
