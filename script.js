@@ -26,7 +26,6 @@ const showAlert = () => {
 
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Prevenir cliques no iframe do mapa
     const mapIframe = document.querySelector('iframe[src*="google.com/maps"]');
     if (mapIframe) {
         mapIframe.addEventListener('click', function(e) {
