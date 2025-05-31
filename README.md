@@ -35,34 +35,14 @@
 ## 📸 Preview
 
 ![Zeroducci Screenshot](imagens/websitepictures/frontpage.png)
-
-
----
-
-## 🚀 Getting Started
-
-To run the project locally:
-
-1. **Clone the repository:**
-   \`\`\`bash
-   git clone https://github.com/your-username/zeroducci-catalog.git
-   cd zeroducci-catalog
-   \`\`\`
-
-2. **Open the HTML file in your browser:**
-   You can use a live server extension or just double-click \`index.html\`.
-
-3. **(Optional) Build Tailwind CSS:**
-   If you're using Tailwind via CLI:
-   \`\`\`bash
-   npx tailwindcss -i ./css/input.css -o ./css/styles.css --watch
-   \`\`\`
+![Zeroducci Screenshot](imagens/websitepictures/description.png)
+![Zeroducci Screenshot](imagens/websitepictures/forthetinys.png)
+![Zeroducci Screenshot](imagens/websitepictures/frontpage.png)
 
 ---
 
 ## 🧩 Customization Ideas
 
-- Add categories (e.g., Newborn, Toddler, Pre-Teen)
 - Implement product filters by age, size, or price
 - Include a product detail modal or page
 - Integrate a shopping cart for e-commerce functionality
@@ -72,18 +52,21 @@ To run the project locally:
 ## 📌 Roadmap
 
 - [ ] Add search and filter options  
-- [ ] Include animations for hover effects and transitions  
+- [x] Include animations for hover effects and transitions  
 - [ ] Create backend integration for dynamic content  
 - [ ] Add user login and checkout flow  
 
 ---
 
-## 📄 License
+## 📄 Copyright
 
-This project is licensed under the [MIT License](LICENSE).
+**ZERODUCCI © 2025** - All rights reserved. This content is the property of **ZERODUCCI** and may **not** be **reproduced**, **distributed**, or **used without prior authorization**.
 
 ---
 
-## 🤝 Contributing
+## 👥 Contributors
 
-Feel free to fork this repository and submit pull requests. Suggestions and improvements are always welcome!
+- [Heitor Carnielo Janko](https://github.com/HelloBigBoi124)  
+- [Gabriel Soares](https://github.com/Gabriel485s)
+
+---
